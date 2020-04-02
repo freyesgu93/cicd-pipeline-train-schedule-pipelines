@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh ./gradlew build --no-daemon
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+                echo 'Starting build...'
+                sh './gradlew build --no-daemon'
+                archiveArtifacts artifacts: dist/trainSchedule.zip
                 echo "Build done :)"
             }
         }
